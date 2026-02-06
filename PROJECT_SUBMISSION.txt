@@ -1,0 +1,13 @@
+# Money Management Project Submission
+
+## 🌐 Live URLs
+- **Frontend (UI):** [https://money-manager-frontend-blond.vercel.app/](https://money-manager-frontend-blond.vercel.app/) (Calculated based on Vercel default patterns - please verify)
+- **Backend (API):** https://money-manager-backend-esg1.onrender.com
+
+## 💻 GitHub Repositories
+- **Frontend Repo:** https://github.com/JagaAj/money-manager-frontend
+- **Backend Repo:** https://github.com/JagaAj/money-manager-backend
+
+## 🔑 Last Commit Hashes
+- **Frontend Hash:** 38af50f
+- **Backend Hash:** 95340e1
