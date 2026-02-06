@@ -8,6 +8,6 @@
 - **Frontend Repo:** https://github.com/JagaAj/money-manager-frontend
 - **Backend Repo:** https://github.com/JagaAj/money-manager-backend
 
-## 🔑 Last Commit Hashes
-- **Frontend Hash:** 6bcc365
-- **Backend Hash:** f566b72
+## 🔑 Last Commit Hashes (Production Final)
+- **Frontend Hash:** 3ad2a3c
+- **Backend Hash:** 52ee482
