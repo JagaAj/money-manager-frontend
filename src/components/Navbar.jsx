@@ -1,57 +1,72 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, History, Wallet, Settings, Layers } from 'lucide-react';
-
-import clsx from 'clsx';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import {
+  LayoutDashboard,
+  History,
+  Wallet,
+  Settings,
+  Layers,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import clsx from "clsx";
 
 const Navbar = () => {
-    const navItems = [
-        { to: '/', icon: LayoutDashboard, label: 'Dashboard' },
-        { to: '/transactions', icon: History, label: 'History' },
-        { to: '/accounts', icon: Wallet, label: 'Accounts' },
-        { to: '/categories', icon: Layers, label: 'Categories' },
-    ];
+  const navItems = [
+    { to: "/", icon: LayoutDashboard, label: "Dashboard" },
+    { to: "/transactions", icon: History, label: "History" },
+    { to: "/accounts", icon: Wallet, label: "Accounts" },
+    { to: "/categories", icon: Layers, label: "Categories" },
+  ];
 
+  return (
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl z-50">
+      <div className="glass-morphism px-8 py-3 rounded-2xl flex items-center justify-between shadow-2xl">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-lg bg-teal-500 flex items-center justify-center shadow-lg shadow-teal-500/30">
+            <Wallet className="w-5 h-5 text-white" />
+          </div>
+          <span className="text-sm font-black tracking-tighter hidden sm:block">MONEY MANAGER</span>
+        </div>
 
-    return (
-        <nav className="fixed bottom-0 left-0 right-0 md:top-0 md:left-0 md:w-64 md:h-full bg-white dark:bg-slate-900 border-t md:border-r border-slate-200 dark:border-slate-800 z-50 transition-all duration-300">
-            <div className="flex md:flex-col h-full justify-between md:justify-start p-4 md:p-6">
-                <div className="hidden md:flex items-center gap-3 mb-10">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
-                        <Wallet className="w-6 h-6 text-white" />
-                    </div>
-                    <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
-                        Money Manager
-                    </h1>
-                </div>
+        <div className="flex items-center gap-2 sm:gap-6">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) =>
+                clsx(
+                  "relative flex items-center gap-2 p-2 px-4 rounded-xl transition-all duration-150 group",
+                  isActive
+                    ? "text-teal-400 font-bold"
+                    : "text-slate-400 hover:text-slate-100 hover:bg-white/5",
+                )
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  <item.icon className="w-5 h-5" />
+                  <span className="hidden sm:block text-xs uppercase tracking-widest">{item.label}</span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-pill"
+                      className="absolute inset-0 bg-teal-500/10 rounded-xl border border-teal-500/20"
+                      transition={{ type: "spring", bounce: 0.15, duration: 0.35 }}
+                    />
+                  )}
+                </>
+              )}
+            </NavLink>
+          ))}
+        </div>
 
-                <div className="flex md:flex-col w-full justify-around md:justify-start gap-2">
-                    {navItems.map((item) => (
-                        <NavLink
-                            key={item.to}
-                            to={item.to}
-                            className={({ isActive }) =>
-                                clsx(
-                                    'flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group',
-                                    isActive
-                                        ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400 font-semibold shadow-sm'
-                                        : 'text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-200'
-                                )
-                            }
-                        >
-                            <item.icon className="w-5 h-5 transition-transform group-hover:scale-110" />
-                            <span className="hidden md:block">{item.label}</span>
-                        </NavLink>
-                    ))}
-                </div>
-
-                <div className="hidden md:block mt-auto p-4 rounded-2xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-indigo-100 dark:border-indigo-900/30">
-                    <h3 className="text-xs font-semibold uppercase text-indigo-500 mb-2">Pro Tip</h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">Track expenses daily to build better habits.</p>
-                </div>
-            </div>
-        </nav>
-    );
+        <div className="hidden sm:flex items-center gap-2">
+          <button className="p-2 text-slate-400 hover:text-white transition-colors">
+            <Settings className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
