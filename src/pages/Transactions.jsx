@@ -287,7 +287,7 @@ const Transactions = () => {
                       : tx.type === "INCOME"
                         ? "+"
                         : ""}
-                    ${tx.amount.toLocaleString()}
+                    ₹{tx.amount.toLocaleString()}
                   </td>
                   <td className="p-6">
                     <div className="flex flex-col items-center gap-2">

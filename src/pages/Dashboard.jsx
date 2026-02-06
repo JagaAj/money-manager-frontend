@@ -62,7 +62,7 @@ const OptimizationModal = ({ isOpen, onClose, summary, healthScore }) => {
     } else {
       advice.push({
         title: "Capital Surplus",
-        desc: "Healthy margin identified. Diversify $" + (summary.balance * 0.2).toFixed(0) + " into growth assets.",
+        desc: "Healthy margin identified. Diversify ₹" + (summary.balance * 0.2).toFixed(0) + " into growth assets.",
         icon: <TrendingUp className="w-4 h-4 text-teal-400" />,
         color: "text-teal-400"
       });
@@ -334,7 +334,7 @@ const Dashboard = () => {
               Total Balance
             </p>
             <h3 className="text-5xl font-black text-white tracking-tighter">
-              ${summary.balance.toLocaleString()}
+              ₹{summary.balance.toLocaleString()}
             </h3>
           </div>
           <div className="mt-8 flex items-center gap-2 text-sm text-teal-500 font-bold bg-teal-500/5 py-2 px-3 rounded-xl w-fit">
@@ -353,7 +353,7 @@ const Dashboard = () => {
             Total Revenue
           </p>
           <h3 className="text-4xl font-black tracking-tight mt-1">
-            ${summary.totalIncome.toLocaleString()}
+            ₹{summary.totalIncome.toLocaleString()}
           </h3>
           <div className="mt-4 flex items-center gap-1 font-bold text-xs">
             <span className="bg-white/20 p-1 px-2 rounded-lg">THIS YEAR</span>
@@ -368,7 +368,7 @@ const Dashboard = () => {
             Total Expenses
           </p>
           <h3 className="text-4xl font-black text-white tracking-tight mt-1">
-            ${summary.totalExpense.toLocaleString()}
+            ₹{summary.totalExpense.toLocaleString()}
           </h3>
           <div className="mt-4 rounded-full bg-red-500/10 h-2 w-full overflow-hidden border border-red-500/10">
             <div
@@ -458,11 +458,11 @@ const Dashboard = () => {
                           <div className="space-y-1">
                             <div className="flex justify-between font-bold text-xs">
                               <span className="text-teal-400">Income</span>
-                              <span>+${payload[0].value}</span>
+                              <span>+₹{payload[0].value}</span>
                             </div>
                             <div className="flex justify-between font-bold text-xs">
                               <span className="text-red-400">Expense</span>
-                              <span>-${payload[1].value}</span>
+                              <span>-₹{payload[1].value}</span>
                             </div>
                           </div>
                         </div>
@@ -606,7 +606,7 @@ const Dashboard = () => {
                     </div>
                     <span className="text-xs font-bold text-white truncate max-w-[100px]">{acc.name}</span>
                   </div>
-                  <span className="text-xs font-black text-white">${acc.balance.toLocaleString()}</span>
+                  <span className="text-xs font-black text-white">₹{acc.balance.toLocaleString()}</span>
                 </div>
               ))}
               {accounts.length === 0 && <p className="text-[10px] text-slate-600 font-bold uppercase text-center py-4">No accounts linked</p>}

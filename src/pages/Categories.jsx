@@ -63,7 +63,7 @@ const Categories = () => {
                   </div>
                   <div className="text-right">
                     <p className={clsx("text-lg font-black tracking-tighter", color)}>
-                      {type === "income" ? "+" : "-"}${amount.toLocaleString()}
+                      {type === "income" ? "+" : "-"}₹{amount.toLocaleString()}
                     </p>
                   </div>
                 </div>

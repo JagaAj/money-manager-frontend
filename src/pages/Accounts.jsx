@@ -108,7 +108,7 @@ const Accounts = () => {
                   {acc.name}
                 </p>
                 <h3 className="text-4xl font-black tracking-tighter text-white">
-                  ${acc.balance?.toLocaleString()}
+                  ₹{acc.balance?.toLocaleString()}
                 </h3>
               </div>
             </div>
@@ -170,7 +170,7 @@ const Accounts = () => {
                       </p>
                     </td>
                     <td className="py-6 text-xl font-black text-right text-indigo-400 tracking-tight">
-                      ${tx.amount.toLocaleString()}
+                      ₹{tx.amount.toLocaleString()}
                     </td>
                   </tr>
                 );

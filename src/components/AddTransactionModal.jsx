@@ -248,7 +248,7 @@ const AddTransactionModal = ({
               <div className="flex items-center gap-2">
                 <span className={clsx("text-4xl font-black mt-2",
                   accent === 'teal' ? 'text-teal-500' : accent === 'rose' ? 'text-rose-500' : 'text-indigo-500'
-                )}>$</span>
+                )}>₹</span>
                 <input
                   type="number"
                   step="0.01"
@@ -324,7 +324,7 @@ const AddTransactionModal = ({
                     onChange={(val) => setFormData({ ...formData, fromAccountId: val })}
                     placeholder="Select Account"
                     accent={accent}
-                    options={accounts.map(a => ({ label: `${a.name} ($${a.balance})`, value: a.id }))}
+                    options={accounts.map(a => ({ label: `${a.name} (₹${a.balance})`, value: a.id }))}
                   />
                 </div>
 
