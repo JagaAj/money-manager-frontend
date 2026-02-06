@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:8080/api',
+    // Replace the URL below with your Render URL after deploying the backend
+    // Example: baseURL: 'https://money-manager-backend.onrender.com/api',
+    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8080/api',
 });
 
 export const getTransactions = (params) => api.get('/transactions', { params });
